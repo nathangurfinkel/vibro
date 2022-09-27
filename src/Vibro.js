@@ -164,14 +164,14 @@ export default function Vibro() {
     >
       <Card
         sx={(theme) => ({
-          [theme.breakpoints.down("sm")]: {
-            padding: "20px",
+          [theme.breakpoints.down("md")]: {
+            padding: "5px",
             width: "100%",
             margin: "10px auto",
             alignItems: "center",
             justifyContent: "center",
           },
-          [theme.breakpoints.up("sm")]: {
+          [theme.breakpoints.up("md")]: {
             padding: "20px",
             width: "50%",
             margin: "10px auto",
