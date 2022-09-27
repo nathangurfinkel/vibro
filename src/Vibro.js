@@ -191,16 +191,37 @@ export default function Vibro() {
         }}
       >
         {" "}
-        <CardMedia
-          component="img"
-          sx={{
-            width: "80%",
-            margin: "10px auto",
-          }}
-          height="auto"
-          image="vibrapp.png"
-          alt="vibrapp logo"
-        />
+        {vibrateStatus === "on" ? (
+          <CardMedia
+            component="img"
+            sx={{
+              width: "80%",
+              margin: "10px auto",
+            }}
+            height="auto"
+            image="ren.gif"
+            alt="ren"
+            //refresh window
+            onClick={() => {
+              window.location.reload();
+            }}
+          />
+        ) : (
+          <CardMedia
+            component="img"
+            sx={{
+              width: "80%",
+              margin: "10px auto",
+            }}
+            height="auto"
+            image="vibrapp.png"
+            alt="vibrapp logo"
+            //refresh window
+            onClick={() => {
+              window.location.reload();
+            }}
+          />
+        )}
         <Stack spacing={2} justifyContent="space-between" alignItems="stretch">
           <Stack>
             <Grid
@@ -241,24 +262,12 @@ export default function Vibro() {
                   {vibrateLength ? vibrateLength + " ms" : "not set"}
                 </Typography>
               </Grid>*/}
+
               <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                 <Typography variant="h6"> vibrator status:</Typography>
               </Grid>
               <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                {vibrateStatus === "off" ? (
-                  <Typography variant="h6">{vibrateStatus}</Typography>
-                ) : (
-                  <CardMedia
-                    component="img"
-                    sx={{
-                      width: "80%",
-                      margin: "10px auto",
-                    }}
-                    height="auto"
-                    image="ren.gif"
-                    alt="ren"
-                  />
-                )}
+                <Typography variant="h6">{vibrateStatus}</Typography>
               </Grid>
               <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                 <Typography variant="h6">keep awake status:</Typography>
@@ -330,7 +339,13 @@ export default function Vibro() {
               ),
             }}
           />
-
+          {(vibrateAt === null ||
+            vibroInterval === 0 ||
+            vibrateLength === 0) && (
+            <Typography variant="h8" sx={{ textAlign: "center" }}>
+              fill the above to activate controls
+            </Typography>
+          )}
           <CardActions
             sx={{
               justifyContent: "space-around",
@@ -417,13 +432,6 @@ export default function Vibro() {
               </>
             </IconButton>
           </CardActions>
-          {(vibrateAt === null ||
-            vibroInterval === 0 ||
-            vibrateLength === 0) && (
-            <Typography variant="h6" sx={{ textAlign: "center" }}>
-              fill the above to activate controls
-            </Typography>
-          )}
         </Stack>
       </CardContent>
     </Card>
