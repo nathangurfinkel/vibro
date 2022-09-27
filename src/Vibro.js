@@ -166,6 +166,7 @@ export default function Vibro() {
           margin: "10px auto",
           alignItems: "center",
           justifyContent: "center",
+          backgroundImage: `linear-gradient(45deg, #fdf0f4 0%, #f5bdcd 100%)`,
         },
         [theme.breakpoints.up("md")]: {
           width: "50%",
@@ -173,12 +174,14 @@ export default function Vibro() {
 
           alignItems: "center",
           justifyContent: "center",
+          backgroundImage: `linear-gradient(45deg, #fdf0f4 0%, #f5bdcd 100%)`,
         },
         [theme.breakpoints.up("xl")]: {
           width: "30%",
           margin: "10px auto",
           alignItems: "center",
           justifyContent: "center",
+          backgroundImage: `linear-gradient(45deg, #fdf0f4 0%, #f5bdcd 100%)`,
         },
       })}
     >
