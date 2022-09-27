@@ -166,7 +166,7 @@ export default function Vibro() {
         sx={(theme) => ({
           [theme.breakpoints.down("sm")]: {
             padding: "20px",
-            width: "80%",
+            width: "100%",
             margin: "10px auto",
             alignItems: "center",
             justifyContent: "center",
