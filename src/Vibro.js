@@ -152,6 +152,7 @@ export default function Vibro() {
     <Box
       sx={{
         // gradient background
+        backgroundImage: `linear-gradient(45deg, #d5f6eb 0%, #d5ddf6 100%)`,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
@@ -162,20 +163,16 @@ export default function Vibro() {
       <Card
         sx={(theme) => ({
           [theme.breakpoints.down("md")]: {
-            width: "100%",
+            width: "98%",
+            margin: "2%",
             alignItems: "center",
             justifyContent: "center",
             backgroundImage: `linear-gradient(45deg, #fdf0f4 0%, #f5bdcd 100%)`,
           },
+
           [theme.breakpoints.up("md")]: {
-            width: "50%",
-            alignItems: "center",
-            justifyContent: "center",
-            backgroundImage: `linear-gradient(45deg, #fdf0f4 0%, #f5bdcd 100%)`,
-          },
-          [theme.breakpoints.up("xl")]: {
-            width: "30%",
-            margin: "10px auto",
+            width: "60%",
+            margin: "1%",
             alignItems: "center",
             justifyContent: "center",
             backgroundImage: `linear-gradient(45deg, #fdf0f4 0%, #f5bdcd 100%)`,
