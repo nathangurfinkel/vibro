@@ -149,312 +149,285 @@ export default function Vibro() {
   };
 
   return (
-    <Box
-      sx={{
-        // gradient background
-        backgroundImage: `linear-gradient(45deg, #f7c8d5 0%, #f7c6d2 100%)`,
-        height: "100vh",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        width: "100vw",
-        maxWidth: "100%",
-        overflowX: "visible",
-      }}
+    // <Box
+    //   sx={{
+    //     // gradient background
+    //     backgroundImage: `linear-gradient(45deg, #f7c8d5 0%, #f7c6d2 100%)`,
+    //     display: "flex",
+    //     justifyContent: "center",
+    //     alignItems: "center",
+
+    //   }}
+    // >
+    <Card
+      sx={(theme) => ({
+        [theme.breakpoints.down("md")]: {
+          width: "80%",
+          margin: "10px auto",
+          alignItems: "center",
+          justifyContent: "center",
+        },
+        [theme.breakpoints.up("md")]: {
+          width: "50%",
+          margin: "10px auto",
+
+          alignItems: "center",
+          justifyContent: "center",
+        },
+        [theme.breakpoints.up("xl")]: {
+          width: "30%",
+          margin: "10px auto",
+          alignItems: "center",
+          justifyContent: "center",
+        },
+      })}
     >
-      <Card
-        sx={(theme) => ({
-          [theme.breakpoints.down("md")]: {
-            padding: "5px",
-            width: "100%",
-            margin: "10px auto",
-            alignItems: "center",
-            justifyContent: "center",
-          },
-          [theme.breakpoints.up("md")]: {
-            padding: "20px",
-            width: "50%",
-            margin: "10px auto",
+      {/* card header with logo */}
 
-            alignItems: "center",
-            justifyContent: "center",
-          },
-          [theme.breakpoints.up("xl")]: {
-            padding: "20px",
-            width: "30%",
-            margin: "10px auto",
-            alignItems: "center",
-            justifyContent: "center",
-          },
-        })}
+      {/* cardheader with refresh button */}
+
+      <img
+        src="vibrapp.png"
+        alt="logo"
+        style={{
+          width: "100%",
+          height: "auto",
+        }}
+        onClick={() => {
+          window.location.reload();
+        }}
+      />
+
+      <CardContent
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
       >
-        {/* card header with logo */}
-
-        {/* cardheader with refresh button */}
-
-        <img
-          src="vibrapp.png"
-          alt="logo"
-          style={{
-            width: "100%",
-            height: "auto",
-          }}
-          onClick={() => {
-            window.location.reload();
-          }}
-        />
-
-        <CardContent
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Stack
-            spacing={2}
-            justifyContent="space-between"
-            alignItems="stretch"
-          >
-            <Stack>
-              <Grid
-                container
-                direction="row"
-                justifyContent="center"
-                alignItems="center"
-              >
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6">current time:</Typography>
-                </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6">
-                    {currentTime.format("HH:mm:ss")}
-                  </Typography>
-                </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6">vibrate at: </Typography>
-                </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6">
-                    {vibrateAt ? vibrateAt.format("HH:mm:ss") : "not set"}
-                  </Typography>
-                </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6"> vibrate every:</Typography>
-                </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6">
-                    {vibroInterval ? vibroInterval + " minutes" : "not set"}
-                  </Typography>
-                </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6"> vibrate for:</Typography>
-                </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6">
-                    {vibrateLength ? vibrateLength + " ms" : "not set"}
-                  </Typography>
-                </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6"> vibrator status:</Typography>
-                </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  {vibrateStatus === "off" ? (
-                    <Typography variant="h6">{vibrateStatus}</Typography>
-                  ) : (
-                    <CardMedia
-                      component="img"
-                      height="140"
-                      image="ren.gif"
-                      alt="ren"
-                    />
-                  )}
-                </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6">keep awake status:</Typography>
-                </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6">
-                    {wakeLocked ? "on" : "off"}
-                  </Typography>
-                </Grid>
-
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6">doing now:</Typography>
-                </Grid>
-                <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
-                  <Typography variant="h6">
-                    {started ? "running" : "waiting for start"}
-                  </Typography>
-                </Grid>
+        <Stack spacing={2} justifyContent="space-between" alignItems="stretch">
+          <Stack>
+            <Grid
+              container
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6">current time:</Typography>
               </Grid>
-            </Stack>
-            <SecondsTimePicker
-              sx={{ width: "100%" }}
-              vibrateAt={vibrateAt}
-              setVibrateAt={setVibrateAt}
-              currentTime={currentTime}
-            />
-            <TextField
-              fullWidth
-              label="Interval"
-              value={vibroInterval}
-              onChange={(e) => {
-                setVibroInterval(e.target.value);
-              }}
-              type="number"
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={() => setVibroInterval(0)}>
-                      <CloseIcon />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-                startAdornment: (
-                  <InputAdornment position="start">minutes:</InputAdornment>
-                ),
-              }}
-            />
-            <TextField
-              fullWidth
-              label="Vibration Length"
-              value={vibrateLength}
-              onChange={(e) => {
-                setVibrateLength(e.target.value);
-              }}
-              type="number"
-              inputProps={{
-                step: 10,
-              }}
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton onClick={() => setVibrateLength(0)}>
-                      <CloseIcon />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-                startAdornment: (
-                  <InputAdornment position="start">ms:</InputAdornment>
-                ),
-              }}
-            />
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6">
+                  {currentTime.format("HH:mm:ss")}
+                </Typography>
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6">vibrate at: </Typography>
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6">
+                  {vibrateAt ? vibrateAt.format("HH:mm:ss") : "not set"}
+                </Typography>
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6"> vibrate every:</Typography>
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6">
+                  {vibroInterval ? vibroInterval + " minutes" : "not set"}
+                </Typography>
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6"> vibrate for:</Typography>
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6">
+                  {vibrateLength ? vibrateLength + " ms" : "not set"}
+                </Typography>
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6"> vibrator status:</Typography>
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                {vibrateStatus === "off" ? (
+                  <Typography variant="h6">{vibrateStatus}</Typography>
+                ) : (
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image="ren.gif"
+                    alt="ren"
+                  />
+                )}
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6">keep awake status:</Typography>
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6">
+                  {wakeLocked ? "on" : "off"}
+                </Typography>
+              </Grid>
 
-            <CardActions
-              sx={{
-                justifyContent: "space-around",
-                alignItems: "center",
-                display: "flex",
-                flexDirection: "row",
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6">doing now:</Typography>
+              </Grid>
+              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+                <Typography variant="h6">
+                  {started ? "running" : "waiting for start"}
+                </Typography>
+              </Grid>
+            </Grid>
+          </Stack>
+          <SecondsTimePicker
+            sx={{ width: "100%" }}
+            vibrateAt={vibrateAt}
+            setVibrateAt={setVibrateAt}
+            currentTime={currentTime}
+          />
+          <TextField
+            fullWidth
+            label="Interval"
+            value={vibroInterval}
+            onChange={(e) => {
+              setVibroInterval(e.target.value);
+            }}
+            type="number"
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={() => setVibroInterval(0)}>
+                    <CloseIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+              startAdornment: (
+                <InputAdornment position="start">minutes:</InputAdornment>
+              ),
+            }}
+          />
+          <TextField
+            fullWidth
+            label="Vibration Length"
+            value={vibrateLength}
+            onChange={(e) => {
+              setVibrateLength(e.target.value);
+            }}
+            type="number"
+            inputProps={{
+              step: 10,
+            }}
+            InputProps={{
+              endAdornment: (
+                <InputAdornment position="end">
+                  <IconButton onClick={() => setVibrateLength(0)}>
+                    <CloseIcon />
+                  </IconButton>
+                </InputAdornment>
+              ),
+              startAdornment: (
+                <InputAdornment position="start">ms:</InputAdornment>
+              ),
+            }}
+          />
+
+          <CardActions
+            sx={{
+              justifyContent: "space-around",
+              alignItems: "center",
+              display: "flex",
+              flexDirection: "row",
+            }}
+          >
+            <IconButton
+              disabled={
+                vibrateAt === null || vibroInterval === 0 || vibrateLength === 0
+              }
+              onClick={() => {
+                setStarted(!started);
               }}
             >
-              <IconButton
-                disabled={
-                  vibrateAt === null ||
-                  vibroInterval === 0 ||
-                  vibrateLength === 0
-                }
-                size="large"
-                onClick={() => {
-                  setStarted(!started);
-                }}
-              >
-                {!started ? (
-                  <>
-                    <Tooltip title="Start">
-                      <AlarmOnIcon fontSize="large" />
-                    </Tooltip>
-                    run
-                  </>
-                ) : (
-                  <>
-                    <Tooltip title="Stop">
-                      <AlarmOffIcon fontSize="large" sx={{ color: "red" }} />
-                    </Tooltip>
-                    stop
-                  </>
-                )}
-              </IconButton>
-
-              <IconButton
-                disabled={vibrateLength === 0}
-                size="large"
-                onClick={() => {
-                  handleVibrate();
-                }}
-              >
-                {vibrateStatus === "on" ? (
-                  <>
-                    <VibrationIcon fontSize="large" sx={{ color: "pink" }} />
-                    test
-                  </>
-                ) : (
-                  <>
-                    <VibrationIcon fontSize="large" sx={{ color: "grey" }} />
-                    test
-                  </>
-                )}
-              </IconButton>
-
-              <IconButton
-                disabled={
-                  vibrateAt === null ||
-                  vibroInterval === 0 ||
-                  vibrateLength === 0
-                }
-                size="large"
-                onClick={() => {
-                  handleWakeLock(!wakeLocked);
-                }}
-              >
-                {!wakeLocked ? (
-                  <>
-                    <SmartphoneOutlinedIcon
-                      fontSize="large"
-                      sx={{ color: "grey" }}
-                    />
-                    wake lock
-                  </>
-                ) : (
-                  <>
-                    <ScreenLockPortraitOutlinedIcon
-                      fontSize="large"
-                      sx={{ color: "red" }}
-                    />
-                    release
-                  </>
-                )}
-              </IconButton>
-
-              <IconButton
-                disabled={
-                  vibrateAt === null ||
-                  vibroInterval === 0 ||
-                  vibrateLength === 0
-                }
-                onClick={() => download("vibro.txt", timesOfVibration)}
-              >
+              {!started ? (
                 <>
-                  <FileDownloadOutlinedIcon
-                    fontSize="large"
-                    sx={{ color: "grey" }}
-                  />
-                  txt log
+                  <Tooltip title="Start">
+                    <AlarmOnIcon fontSize="large" />
+                  </Tooltip>
+                  {/* run */}
                 </>
-              </IconButton>
-            </CardActions>
-            {(vibrateAt === null ||
-              vibroInterval === 0 ||
-              vibrateLength === 0) && (
-              <Typography variant="h6" sx={{ textAlign: "center" }}>
-                fill the above to activate controls
-              </Typography>
-            )}
-          </Stack>
-        </CardContent>
-      </Card>
-    </Box>
+              ) : (
+                <>
+                  <Tooltip title="Stop">
+                    <AlarmOffIcon fontSize="large" sx={{ color: "red" }} />
+                  </Tooltip>
+                  {/* stop */}
+                </>
+              )}
+            </IconButton>
+
+            <IconButton
+              disabled={vibrateLength === 0}
+              onClick={() => {
+                handleVibrate();
+              }}
+            >
+              {vibrateStatus === "on" ? (
+                <>
+                  <VibrationIcon fontSize="large" sx={{ color: "pink" }} />
+                  {/* test */}
+                </>
+              ) : (
+                <>
+                  <VibrationIcon fontSize="large" sx={{ color: "grey" }} />
+                  {/* test */}
+                </>
+              )}
+            </IconButton>
+
+            <IconButton
+              disabled={
+                vibrateAt === null || vibroInterval === 0 || vibrateLength === 0
+              }
+              size="large"
+              onClick={() => {
+                handleWakeLock(!wakeLocked);
+              }}
+            >
+              {!wakeLocked ? (
+                <>
+                  <SmartphoneOutlinedIcon sx={{ color: "grey" }} />
+                  {/* wake lock */}
+                </>
+              ) : (
+                <>
+                  <ScreenLockPortraitOutlinedIcon sx={{ color: "red" }} />
+                  {/* release */}
+                </>
+              )}
+            </IconButton>
+
+            <IconButton
+              disabled={
+                vibrateAt === null || vibroInterval === 0 || vibrateLength === 0
+              }
+              onClick={() => download("vibro.txt", timesOfVibration)}
+            >
+              <>
+                <FileDownloadOutlinedIcon sx={{ color: "grey" }} />
+                {/* txt log */}
+              </>
+            </IconButton>
+          </CardActions>
+          {(vibrateAt === null ||
+            vibroInterval === 0 ||
+            vibrateLength === 0) && (
+            <Typography variant="h6" sx={{ textAlign: "center" }}>
+              fill the above to activate controls
+            </Typography>
+          )}
+        </Stack>
+      </CardContent>
+    </Card>
+    // </Box>
   );
 }
