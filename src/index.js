@@ -5,12 +5,36 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Vibro from "./Vibro";
 
+// override global mui font theme to use roboto
+// https://material-ui.com/customization/default-theme/
+import CssBaseline from "@mui/material/CssBaseline";
+import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+const theme = createTheme({
+  typography: {
+    fontFamily: [
+      "Cambria",
+      "Roboto",
+      '"Helvetica Neue"',
+      "Arial",
+      "sans-serif",
+    ].join(","),
+  },
+  palette: {
+    text: {
+      primary: "#e57575",
+    },
+    
+  },
+});
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Vibro
-      
-    />
+    {" "}
+    <ThemeProvider theme={theme}>
+      <Vibro />
+    </ThemeProvider>
   </React.StrictMode>
 );
 

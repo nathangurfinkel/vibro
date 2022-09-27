@@ -73,9 +73,15 @@ export default function Vibro() {
   // mui theme to change the color of all the typography fonts
   const theme = useTheme();
   const typography = theme.typography;
+  typography.h8 = {
+    ...typography.h8,
+    color: "#f07173",
+    fontFamily: "Cambria",
+  };
   typography.h6 = {
     ...typography.h6,
     color: "#f07173",
+    fontFamily: "Cambria",
   };
 
   const MINUTE_MS = 60000;
