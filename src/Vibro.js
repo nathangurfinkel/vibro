@@ -185,22 +185,6 @@ export default function Vibro() {
         },
       })}
     >
-      {/* card header with logo */}
-
-      {/* cardheader with refresh button */}
-
-      <img
-        src="vibrapp.png"
-        alt="logo"
-        style={{
-          width: "100%",
-          height: "auto",
-        }}
-        onClick={() => {
-          window.location.reload();
-        }}
-      />
-
       <CardContent
         sx={{
           display: "flex",
@@ -209,6 +193,17 @@ export default function Vibro() {
           alignItems: "center",
         }}
       >
+        {" "}
+        <CardMedia
+          component="img"
+          sx={{
+            width: "80%",
+            margin: "10px auto",
+          }}
+          height="auto"
+          image="vibrapp.png"
+          alt="vibrapp logo"
+        />
         <Stack spacing={2} justifyContent="space-between" alignItems="stretch">
           <Stack>
             <Grid
@@ -248,10 +243,10 @@ export default function Vibro() {
                 <Typography variant="h6">
                   {vibrateLength ? vibrateLength + " ms" : "not set"}
                 </Typography>
-              </Grid>
+              </Grid>*/}
               <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                 <Typography variant="h6"> vibrator status:</Typography>
-              </Grid> */}
+              </Grid>
               <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                 {vibrateStatus === "off" ? (
                   <Typography variant="h6">{vibrateStatus}</Typography>
