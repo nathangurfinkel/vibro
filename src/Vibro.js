@@ -43,7 +43,7 @@ export function SecondsTimePicker({ vibrateAt, setVibrateAt, currentTime }) {
           inputFormat="HH:mm:ss"
           mask="__:__:__"
           label="Vibrate at"
-          value={(vibrateAt && dayjs(vibrateAt)) || null}
+          value={(vibrateAt && dayjs(vibrateAt)) || dayjs(currentTime)}
           onChange={(newValue) => {
             setVibrateAt(newValue);
           }}
@@ -162,16 +162,13 @@ export default function Vibro() {
     <Card
       sx={(theme) => ({
         [theme.breakpoints.down("md")]: {
-          width: "95%",
-          margin: "10px auto",
+          width: "100%",
           alignItems: "center",
           justifyContent: "center",
           backgroundImage: `linear-gradient(45deg, #fdf0f4 0%, #f5bdcd 100%)`,
         },
         [theme.breakpoints.up("md")]: {
           width: "50%",
-          margin: "10px auto",
-
           alignItems: "center",
           justifyContent: "center",
           backgroundImage: `linear-gradient(45deg, #fdf0f4 0%, #f5bdcd 100%)`,
