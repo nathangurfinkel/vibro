@@ -195,7 +195,7 @@ export default function Vibro() {
             <CardMedia
               component="img"
               sx={{
-                width: "60%",
+                width: "38%",
                 margin: "10px auto",
               }}
               height="auto"
