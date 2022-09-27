@@ -253,7 +253,11 @@ export default function Vibro() {
                 ) : (
                   <CardMedia
                     component="img"
-                    height="140"
+                    sx={{
+                      width: "80%",
+                      margin: "10px auto",
+                    }}
+                    height="auto"
                     image="ren.gif"
                     alt="ren"
                   />
