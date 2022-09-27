@@ -162,7 +162,7 @@ export default function Vibro() {
     <Card
       sx={(theme) => ({
         [theme.breakpoints.down("md")]: {
-          width: "80%",
+          width: "95%",
           margin: "10px auto",
           alignItems: "center",
           justifyContent: "center",
@@ -225,7 +225,7 @@ export default function Vibro() {
                   {currentTime.format("HH:mm:ss")}
                 </Typography>
               </Grid>
-              <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
+              {/* <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                 <Typography variant="h6">vibrate at: </Typography>
               </Grid>
               <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
@@ -251,7 +251,7 @@ export default function Vibro() {
               </Grid>
               <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                 <Typography variant="h6"> vibrator status:</Typography>
-              </Grid>
+              </Grid> */}
               <Grid item xs={6} sm={6} md={6} lg={6} xl={6}>
                 {vibrateStatus === "off" ? (
                   <Typography variant="h6">{vibrateStatus}</Typography>
