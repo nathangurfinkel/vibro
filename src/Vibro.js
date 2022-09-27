@@ -158,7 +158,6 @@ export default function Vibro() {
     <Box
       sx={{
         // gradient background
-        backgroundImage: `linear-gradient(45deg, #d5f6eb 0%, #d5ddf6 100%)`,
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

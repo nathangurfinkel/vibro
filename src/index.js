@@ -24,18 +24,31 @@ const theme = createTheme({
     text: {
       primary: "#e57575",
     },
-    
   },
 });
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
-    {" "}
-    <ThemeProvider theme={theme}>
-      <Vibro />
-    </ThemeProvider>
-  </React.StrictMode>
+  <div
+    style={{
+      backgroundColor: "#000000",
+      height: "100vh",
+      width: "100vw",
+      backgroundImage: `linear-gradient(45deg, #d5f6eb 0%, #d5ddf6 100%)`,
+      display: "flex",
+      flexDirection: "column",
+      justifyContent: "center",
+      alignItems: "center",
+      flexGrow: 1,
+    }}
+  >
+    <React.StrictMode>
+      {" "}
+      <ThemeProvider theme={theme}>
+        <Vibro />
+      </ThemeProvider>
+    </React.StrictMode>
+  </div>
 );
 
 // If you want to start measuring performance in your app, pass a function
